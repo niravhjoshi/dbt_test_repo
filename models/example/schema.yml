@@ -1,0 +1,48 @@
+version: 2
+
+models:
+    - name: my_first_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: my_second_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: hello_world
+      columns:
+          - name: customer_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: film_test
+      columns:
+          - name: rating
+            description: "rating should only have this desired values"
+            tests:
+              - accepted_values:
+                  values: ['NC-17','PG-13','G','R','PG']
+          - name: language_id
+            description: "language should be only 1 and 2 as int"
+            tests:
+              - accepted_values:
+                  values: [2,1]
+                  quote: false
+sources:
+  - name: stg_example
+    database: sakila_wh
+    schema: stg
+    tables:
+     - name: film
+     - name: customer
