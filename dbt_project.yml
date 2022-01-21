@@ -42,4 +42,4 @@ models:
       example:
           materialized: table
       dimensions:
-          materialized: table
+          materialized: view

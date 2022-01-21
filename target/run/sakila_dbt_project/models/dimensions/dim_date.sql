@@ -1,7 +1,5 @@
 
-
-  create  table "sakila_wh"."dwh"."dim_date__dbt_tmp"
-  as (
+  create view "sakila_wh"."dwh"."dim_date__dbt_tmp" as (
     with dates as (
 SELECT
        TO_CHAR(datum, 'yyyymmdd')::INT AS date_dim_id,

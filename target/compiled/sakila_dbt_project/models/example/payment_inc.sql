@@ -2,13 +2,11 @@
 
 select
 *,
-'2022-01-15 16:27:51' as dbt_tran_time
+'2022-01-21 06:44:04' as dbt_tran_time
 from
 stg.payment
 where 1=1
 
-
-and payment_date::timestamp > (select max(payment_date) from "sakila_wh"."dwh"."payment_inc")
 
 
 
